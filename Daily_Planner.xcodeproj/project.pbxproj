@@ -7,19 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		217373210A9EB7FF55DB199F /* Pods_Daily_Planner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE640E4D7688F38F88299C89 /* Pods_Daily_Planner.framework */; };
 		F3E812D52B57D81000ADA29C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E812D42B57D81000ADA29C /* AppDelegate.swift */; };
-		F3E812D92B57D81000ADA29C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E812D82B57D81000ADA29C /* ViewController.swift */; };
+		F3E812D92B57D81000ADA29C /* ActivityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E812D82B57D81000ADA29C /* ActivityListViewController.swift */; };
 		F3E812DE2B57D81200ADA29C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3E812DD2B57D81200ADA29C /* Assets.xcassets */; };
 		F3E812E12B57D81200ADA29C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3E812DF2B57D81200ADA29C /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1954E454DE5AF27EFCFE1DCF /* Pods-Daily_Planner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daily_Planner.release.xcconfig"; path = "Target Support Files/Pods-Daily_Planner/Pods-Daily_Planner.release.xcconfig"; sourceTree = "<group>"; };
+		6DFE02FECD571656F8F474FA /* Pods-Daily_Planner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daily_Planner.debug.xcconfig"; path = "Target Support Files/Pods-Daily_Planner/Pods-Daily_Planner.debug.xcconfig"; sourceTree = "<group>"; };
 		F3E812D12B57D81000ADA29C /* Daily_Planner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Daily_Planner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3E812D42B57D81000ADA29C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F3E812D82B57D81000ADA29C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F3E812D82B57D81000ADA29C /* ActivityListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListViewController.swift; sourceTree = "<group>"; };
 		F3E812DD2B57D81200ADA29C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3E812E02B57D81200ADA29C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F3E812E22B57D81200ADA29C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE640E4D7688F38F88299C89 /* Pods_Daily_Planner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Daily_Planner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,17 +31,63 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				217373210A9EB7FF55DB199F /* Pods_Daily_Planner.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		29D83EA30D452BCF4E59C421 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6DFE02FECD571656F8F474FA /* Pods-Daily_Planner.debug.xcconfig */,
+				1954E454DE5AF27EFCFE1DCF /* Pods-Daily_Planner.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		2A70D579ECDD8010F060040E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FE640E4D7688F38F88299C89 /* Pods_Daily_Planner.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F3534D9E2B57EE7F0098DC86 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				F3534DA02B57F00F0098DC86 /* ActivityList */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		F3534D9F2B57EE8A0098DC86 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F3E812E22B57D81200ADA29C /* Info.plist */,
+				F3E812DF2B57D81200ADA29C /* LaunchScreen.storyboard */,
+				F3E812DD2B57D81200ADA29C /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F3534DA02B57F00F0098DC86 /* ActivityList */ = {
+			isa = PBXGroup;
+			children = (
+				F3E812D82B57D81000ADA29C /* ActivityListViewController.swift */,
+			);
+			path = ActivityList;
+			sourceTree = "<group>";
+		};
 		F3E812C82B57D81000ADA29C = {
 			isa = PBXGroup;
 			children = (
 				F3E812D32B57D81000ADA29C /* Daily_Planner */,
 				F3E812D22B57D81000ADA29C /* Products */,
+				29D83EA30D452BCF4E59C421 /* Pods */,
+				2A70D579ECDD8010F060040E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,11 +102,9 @@
 		F3E812D32B57D81000ADA29C /* Daily_Planner */ = {
 			isa = PBXGroup;
 			children = (
+				F3534D9E2B57EE7F0098DC86 /* Modules */,
+				F3534D9F2B57EE8A0098DC86 /* Resources */,
 				F3E812D42B57D81000ADA29C /* AppDelegate.swift */,
-				F3E812D82B57D81000ADA29C /* ViewController.swift */,
-				F3E812DD2B57D81200ADA29C /* Assets.xcassets */,
-				F3E812DF2B57D81200ADA29C /* LaunchScreen.storyboard */,
-				F3E812E22B57D81200ADA29C /* Info.plist */,
 			);
 			path = Daily_Planner;
 			sourceTree = "<group>";
@@ -68,9 +116,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F3E812E52B57D81200ADA29C /* Build configuration list for PBXNativeTarget "Daily_Planner" */;
 			buildPhases = (
+				D905E2534564F06036777B43 /* [CP] Check Pods Manifest.lock */,
 				F3E812CD2B57D81000ADA29C /* Sources */,
 				F3E812CE2B57D81000ADA29C /* Frameworks */,
 				F3E812CF2B57D81000ADA29C /* Resources */,
+				F3E812E82B57DDB500ADA29C /* Swiftlint */,
+				DED4C1F638E4DF1A57B8ECB5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,12 +177,72 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D905E2534564F06036777B43 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Daily_Planner-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DED4C1F638E4DF1A57B8ECB5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Daily_Planner/Pods-Daily_Planner-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Daily_Planner/Pods-Daily_Planner-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Daily_Planner/Pods-Daily_Planner-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F3E812E82B57DDB500ADA29C /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint --fix && swiftlint\nelse\n  echo \"error: SwiftLint does not exist, download it from https://github.com/realm/SwiftLint\"\n  exit 1\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F3E812CD2B57D81000ADA29C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3E812D92B57D81000ADA29C /* ViewController.swift in Sources */,
+				F3E812D92B57D81000ADA29C /* ActivityListViewController.swift in Sources */,
 				F3E812D52B57D81000ADA29C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,6 +377,7 @@
 		};
 		F3E812E62B57D81200ADA29C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6DFE02FECD571656F8F474FA /* Pods-Daily_Planner.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -273,12 +385,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RBRFGT8CHB;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Daily_Planner/Info.plist;
+				INFOPLIST_FILE = Daily_Planner/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -286,14 +399,18 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "daniil.Daily-Planner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		F3E812E72B57D81200ADA29C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1954E454DE5AF27EFCFE1DCF /* Pods-Daily_Planner.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -301,12 +418,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RBRFGT8CHB;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Daily_Planner/Info.plist;
+				INFOPLIST_FILE = Daily_Planner/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -314,9 +432,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "daniil.Daily-Planner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
