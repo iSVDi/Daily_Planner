@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "E470175B-8EC2-41A5-AB3F-D3A8D3896A72"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "410C7CC0-49A5-472F-826A-C14EC5696871"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Daily_Planner/Modules/CreateActivity/CreateActivityViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "updateNavigationBarIfNeed()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "410C7CC0-49A5-472F-826A-C14EC5696871 - abad23c23dd22328"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Daily_Planner.CreateActivityViewController.updateNavigationBarIfNeed() -&gt; ()"
+                  moduleName = "Daily_Planner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/daniilsestopalov/Documents/Work/SimbirSoft/Daily_Planer/Daily_Planner/Modules/CreateActivity/CreateActivityViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "752">
+               </Location>
+               <Location
+                  uuid = "410C7CC0-49A5-472F-826A-C14EC5696871 - abad23c23dd2230b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Daily_Planner.CreateActivityViewController.updateNavigationBarIfNeed() -&gt; ()"
+                  moduleName = "Daily_Planner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/daniilsestopalov/Documents/Work/SimbirSoft/Daily_Planer/Daily_Planner/Modules/CreateActivity/CreateActivityViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "756">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

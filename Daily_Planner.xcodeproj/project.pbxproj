@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		217373210A9EB7FF55DB199F /* Pods_Daily_Planner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE640E4D7688F38F88299C89 /* Pods_Daily_Planner.framework */; };
+		F37422402B5800E4003E6290 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F374223F2B5800E4003E6290 /* Colors.swift */; };
+		F37422422B5804DF003E6290 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37422412B5804DF003E6290 /* LocalizedStrings.swift */; };
+		F37422452B58057F003E6290 /* UIViewController+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37422442B58057F003E6290 /* UIViewController+Convenience.swift */; };
+		F37422482B5808D5003E6290 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F374224A2B5808D5003E6290 /* Localizable.strings */; };
+		F374224D2B580B89003E6290 /* CreateActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F374224C2B580B89003E6290 /* CreateActivityViewController.swift */; };
 		F3E812D52B57D81000ADA29C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E812D42B57D81000ADA29C /* AppDelegate.swift */; };
 		F3E812D92B57D81000ADA29C /* ActivityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E812D82B57D81000ADA29C /* ActivityListViewController.swift */; };
 		F3E812DE2B57D81200ADA29C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3E812DD2B57D81200ADA29C /* Assets.xcassets */; };
@@ -17,6 +22,11 @@
 /* Begin PBXFileReference section */
 		1954E454DE5AF27EFCFE1DCF /* Pods-Daily_Planner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daily_Planner.release.xcconfig"; path = "Target Support Files/Pods-Daily_Planner/Pods-Daily_Planner.release.xcconfig"; sourceTree = "<group>"; };
 		6DFE02FECD571656F8F474FA /* Pods-Daily_Planner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daily_Planner.debug.xcconfig"; path = "Target Support Files/Pods-Daily_Planner/Pods-Daily_Planner.debug.xcconfig"; sourceTree = "<group>"; };
+		F374223F2B5800E4003E6290 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		F37422412B5804DF003E6290 /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
+		F37422442B58057F003E6290 /* UIViewController+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Convenience.swift"; sourceTree = "<group>"; };
+		F37422492B5808D5003E6290 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F374224C2B580B89003E6290 /* CreateActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateActivityViewController.swift; sourceTree = "<group>"; };
 		F3E812D12B57D81000ADA29C /* Daily_Planner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Daily_Planner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3E812D42B57D81000ADA29C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3E812D82B57D81000ADA29C /* ActivityListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				F3534DA02B57F00F0098DC86 /* ActivityList */,
+				F374224B2B580B5F003E6290 /* CreateActivity */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -69,6 +80,7 @@
 				F3E812E22B57D81200ADA29C /* Info.plist */,
 				F3E812DF2B57D81200ADA29C /* LaunchScreen.storyboard */,
 				F3E812DD2B57D81200ADA29C /* Assets.xcassets */,
+				F374224A2B5808D5003E6290 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -79,6 +91,32 @@
 				F3E812D82B57D81000ADA29C /* ActivityListViewController.swift */,
 			);
 			path = ActivityList;
+			sourceTree = "<group>";
+		};
+		F374223C2B5800C5003E6290 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F374223E2B5800D0003E6290 /* Extensions */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		F374223E2B5800D0003E6290 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F374223F2B5800E4003E6290 /* Colors.swift */,
+				F37422412B5804DF003E6290 /* LocalizedStrings.swift */,
+				F37422442B58057F003E6290 /* UIViewController+Convenience.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F374224B2B580B5F003E6290 /* CreateActivity */ = {
+			isa = PBXGroup;
+			children = (
+				F374224C2B580B89003E6290 /* CreateActivityViewController.swift */,
+			);
+			path = CreateActivity;
 			sourceTree = "<group>";
 		};
 		F3E812C82B57D81000ADA29C = {
@@ -102,6 +140,7 @@
 		F3E812D32B57D81000ADA29C /* Daily_Planner */ = {
 			isa = PBXGroup;
 			children = (
+				F374223C2B5800C5003E6290 /* Common */,
 				F3534D9E2B57EE7F0098DC86 /* Modules */,
 				F3534D9F2B57EE8A0098DC86 /* Resources */,
 				F3E812D42B57D81000ADA29C /* AppDelegate.swift */,
@@ -171,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3E812E12B57D81200ADA29C /* LaunchScreen.storyboard in Resources */,
+				F37422482B5808D5003E6290 /* Localizable.strings in Resources */,
 				F3E812DE2B57D81200ADA29C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,6 +283,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3E812D92B57D81000ADA29C /* ActivityListViewController.swift in Sources */,
+				F374224D2B580B89003E6290 /* CreateActivityViewController.swift in Sources */,
+				F37422452B58057F003E6290 /* UIViewController+Convenience.swift in Sources */,
+				F37422402B5800E4003E6290 /* Colors.swift in Sources */,
+				F37422422B5804DF003E6290 /* LocalizedStrings.swift in Sources */,
 				F3E812D52B57D81000ADA29C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -250,6 +294,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		F374224A2B5808D5003E6290 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F37422492B5808D5003E6290 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		F3E812DF2B57D81200ADA29C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

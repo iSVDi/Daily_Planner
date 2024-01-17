@@ -1,4 +1,5 @@
 PODS:
+  - FSCalendar (2.8.4)
   - Realm (10.42.4):
     - Realm/Headers (= 10.42.4)
   - Realm/Headers (10.42.4)
@@ -7,20 +8,23 @@ PODS:
   - TinyConstraints (4.0.2)
 
 DEPENDENCIES:
+  - FSCalendar
   - RealmSwift
   - TinyConstraints
 
 SPEC REPOS:
   trunk:
+    - FSCalendar
     - Realm
     - RealmSwift
     - TinyConstraints
 
 SPEC CHECKSUMS:
+  FSCalendar: 2d1d0d9398f12d439f55c1fe0f01525b151b8260
   Realm: a3a10c2110744ec9510a5fc21a6051818c6181c7
   RealmSwift: d25fa6c3cbb722a698993a501206d9841d79ca32
   TinyConstraints: 7b7ccc0c485bb3bb47082138ff28bc33cd49897f
 
-PODFILE CHECKSUM: 493215b94321c48c9b985e8a0a37ab000a481711
+PODFILE CHECKSUM: e8364f4287b5aa73fdbaf8669bc5d0138bf3fb1d
 
 COCOAPODS: 1.13.0
