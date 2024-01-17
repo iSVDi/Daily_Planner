@@ -49,6 +49,21 @@
                   endingLineNumber = "70"
                   offsetFromSymbolStart = "756">
                </Location>
+               <Location
+                  uuid = "410C7CC0-49A5-472F-826A-C14EC5696871 - abad23c23dd22349"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Daily_Planner.CreateActivityViewController.updateNavigationBarIfNeed() -&gt; ()"
+                  moduleName = "Daily_Planner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/daniilsestopalov/Documents/Work/SimbirSoft/Daily_Planer/Daily_Planner/Modules/CreateActivity/CreateActivityViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "756">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>

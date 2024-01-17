@@ -16,7 +16,7 @@ extension String {
     enum Common: String {
         case backTitle
     }
-    
+
 }
 
 prefix operator ^
