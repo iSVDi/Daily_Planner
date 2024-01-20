@@ -97,7 +97,7 @@ class CreateActivityViewController: UIViewController {
         }
         return stack
     }
-    
+
     @objc
     private func textFieldDidChange() {
         updateNavigationBarIfNeed()
@@ -114,8 +114,8 @@ class CreateActivityViewController: UIViewController {
         let activity = Activity()
         activity.title = title
         activity.details = details
-        activity.dateStart = presenter.getTimeStamp(date: dateStartPicker.date)
-        activity.dateFinish = presenter.getTimeStamp(date: dateFinishPicker.date)
+        activity.dateStart = dateStartPicker.date.timeIntervalSince1970
+        activity.dateFinish = dateFinishPicker.date.timeIntervalSince1970
 
         presenter.createActivity(activity: activity)
     }

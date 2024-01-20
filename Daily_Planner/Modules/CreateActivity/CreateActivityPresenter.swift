@@ -24,10 +24,6 @@ class CreateActivityPresenter {
         return true
     }
 
-    func getTimeStamp(date: Date) -> String {
-        return String(date.timeIntervalSince1970)
-    }
-
     func createActivity(activity: Activity) {
         do {
             try dataBase.addActivity(activity)

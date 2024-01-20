@@ -10,8 +10,8 @@ import RealmSwift
 class Activity: Object {
     @Persisted var title: String
     @Persisted var details: String
-    @Persisted var dateStart: String
-    @Persisted var dateFinish: String
+    @Persisted var dateStart: TimeInterval
+    @Persisted var dateFinish: TimeInterval
 }
 
 class ActivityDataBase {
