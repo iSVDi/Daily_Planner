@@ -17,4 +17,5 @@ extension UIColor {
     static let appSystemGreen = UIColor.systemGreen
     static let appSystemYellow = UIColor.systemYellow
     static let appSystemOrange = UIColor.systemOrange
+    static let appLightGray = UIColor.lightGray
 }

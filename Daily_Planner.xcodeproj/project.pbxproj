@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		217373210A9EB7FF55DB199F /* Pods_Daily_Planner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE640E4D7688F38F88299C89 /* Pods_Daily_Planner.framework */; };
+		F327EDDB2B5BA7C4003EA6C5 /* ActivityDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F327EDDA2B5BA7C4003EA6C5 /* ActivityDataBase.swift */; };
+		F327EDDD2B5BB41C003EA6C5 /* CreateActivityPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F327EDDC2B5BB41C003EA6C5 /* CreateActivityPresenter.swift */; };
 		F37422402B5800E4003E6290 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F374223F2B5800E4003E6290 /* Colors.swift */; };
 		F37422422B5804DF003E6290 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37422412B5804DF003E6290 /* LocalizedStrings.swift */; };
 		F37422452B58057F003E6290 /* UIViewController+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37422442B58057F003E6290 /* UIViewController+Convenience.swift */; };
@@ -22,6 +24,8 @@
 /* Begin PBXFileReference section */
 		1954E454DE5AF27EFCFE1DCF /* Pods-Daily_Planner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daily_Planner.release.xcconfig"; path = "Target Support Files/Pods-Daily_Planner/Pods-Daily_Planner.release.xcconfig"; sourceTree = "<group>"; };
 		6DFE02FECD571656F8F474FA /* Pods-Daily_Planner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daily_Planner.debug.xcconfig"; path = "Target Support Files/Pods-Daily_Planner/Pods-Daily_Planner.debug.xcconfig"; sourceTree = "<group>"; };
+		F327EDDA2B5BA7C4003EA6C5 /* ActivityDataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDataBase.swift; sourceTree = "<group>"; };
+		F327EDDC2B5BB41C003EA6C5 /* CreateActivityPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateActivityPresenter.swift; sourceTree = "<group>"; };
 		F374223F2B5800E4003E6290 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		F37422412B5804DF003E6290 /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
 		F37422442B58057F003E6290 /* UIViewController+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Convenience.swift"; sourceTree = "<group>"; };
@@ -96,6 +100,7 @@
 		F374223C2B5800C5003E6290 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F327EDDA2B5BA7C4003EA6C5 /* ActivityDataBase.swift */,
 				F374223E2B5800D0003E6290 /* Extensions */,
 			);
 			path = Common;
@@ -115,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				F374224C2B580B89003E6290 /* CreateActivityViewController.swift */,
+				F327EDDC2B5BB41C003EA6C5 /* CreateActivityPresenter.swift */,
 			);
 			path = CreateActivity;
 			sourceTree = "<group>";
@@ -283,7 +289,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3E812D92B57D81000ADA29C /* ActivityListViewController.swift in Sources */,
+				F327EDDD2B5BB41C003EA6C5 /* CreateActivityPresenter.swift in Sources */,
 				F374224D2B580B89003E6290 /* CreateActivityViewController.swift in Sources */,
+				F327EDDB2B5BA7C4003EA6C5 /* ActivityDataBase.swift in Sources */,
 				F37422452B58057F003E6290 /* UIViewController+Convenience.swift in Sources */,
 				F37422402B5800E4003E6290 /* Colors.swift in Sources */,
 				F37422422B5804DF003E6290 /* LocalizedStrings.swift in Sources */,
@@ -363,7 +371,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -417,7 +425,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

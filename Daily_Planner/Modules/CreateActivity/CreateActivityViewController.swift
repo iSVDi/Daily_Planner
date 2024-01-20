@@ -7,11 +7,19 @@
 
 import UIKit
 
+protocol CreateActivityDelegate: NSObjectProtocol {
+    func showAlert(title: String, message: String)
+}
+
 class CreateActivityViewController: UIViewController {
 
     private let titleTextField = UITextField()
+    private let dateStartLabel = UILabel()
+    private let dateFinishLabel = UILabel()
     private let descriptionTextView = UITextView()
-    private let datePicker = UIDatePicker()
+    private let dateStartPicker = UIDatePicker()
+    private let dateFinishPicker = UIDatePicker()
+    private lazy var presenter = CreateActivityPresenter(self)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +34,11 @@ class CreateActivityViewController: UIViewController {
         stack.axis = .vertical
         stack.spacing = 10
         view.addSubview(stack)
-        [titleTextField, descriptionTextView, datePicker].forEach {
+
+        let dateStartStack = getDatePickerStack(label: dateStartLabel, datePicker: dateStartPicker)
+        let dateFinishStack = getDatePickerStack(label: dateFinishLabel, datePicker: dateFinishPicker)
+
+        [titleTextField, descriptionTextView, dateStartStack, dateFinishStack].forEach {
             stack.addArrangedSubview($0)
         }
 
@@ -35,7 +47,6 @@ class CreateActivityViewController: UIViewController {
         descriptionTextView.horizontalToSuperview()
         titleTextField.heightToSuperview(multiplier: 0.15)
         descriptionTextView.heightToSuperview(multiplier: 0.7)
-        datePicker.rightToSuperview()
     }
 
     // TODO: localize
@@ -43,12 +54,22 @@ class CreateActivityViewController: UIViewController {
         navigationItem.title = "Create Activity"
         titleTextField.placeholder = "Title"
         descriptionTextView.delegate = self
+        dateStartLabel.text = "Date start"
+        dateFinishLabel.text = "Date finish"
+        descriptionTextView.text = "Placeholder"
+        descriptionTextView.textColor = .appLightGray
+        descriptionTextView.delegate = self
+
         [titleTextField, descriptionTextView].forEach {
             $0.backgroundColor = .appSystemGray
             $0.layer.cornerRadius = 10
         }
-        datePicker.datePickerMode = .dateAndTime
-        datePicker.minimumDate = Date()
+
+        let currentDate = Date()
+        [dateStartPicker, dateFinishPicker].forEach {
+            $0.datePickerMode = .dateAndTime
+            $0.date = currentDate
+        }
 
         let rightBarButtonItem = UIBarButtonItem(title: "Create",
                                                  style: .done,
@@ -69,6 +90,14 @@ class CreateActivityViewController: UIViewController {
 
     }
 
+    private func getDatePickerStack(label: UILabel, datePicker: UIDatePicker) -> UIView {
+        let stack = UIStackView()
+        [label, datePicker].forEach {
+            stack.addArrangedSubview($0)
+        }
+        return stack
+    }
+    
     @objc
     private func textFieldDidChange() {
         updateNavigationBarIfNeed()
@@ -76,7 +105,19 @@ class CreateActivityViewController: UIViewController {
 
     @objc
     private func rightBarButtonHandler() {
-        print("create activity")
+        guard let title = titleTextField.text,
+              let details = descriptionTextView.text,
+              presenter.isDatesCorrect(dateStart: dateStartPicker.date, dateFinish: dateFinishPicker.date) else {
+            return
+        }
+
+        let activity = Activity()
+        activity.title = title
+        activity.details = details
+        activity.dateStart = presenter.getTimeStamp(date: dateStartPicker.date)
+        activity.dateFinish = presenter.getTimeStamp(date: dateFinishPicker.date)
+
+        presenter.createActivity(activity: activity)
     }
 
 }
@@ -87,6 +128,35 @@ extension CreateActivityViewController: UITextViewDelegate {
 
     func textViewDidChange(_ textView: UITextView) {
         updateNavigationBarIfNeed()
+    }
+
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == .appLightGray {
+                textView.text = nil
+                textView.textColor = UIColor.black
+            }
+    }
+
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            // TODO: localize
+               textView.text = "Placeholder"
+               textView.textColor = UIColor.lightGray
+           }
+    }
+
+}
+
+// MARK: - CreateActivityDelegate
+
+extension CreateActivityViewController: CreateActivityDelegate {
+
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        // TODO: localize
+        let ok = UIAlertAction(title: "Ok", style: .default)
+        alert.addAction(ok)
+        present(alert, animated: true)
     }
 
 }
