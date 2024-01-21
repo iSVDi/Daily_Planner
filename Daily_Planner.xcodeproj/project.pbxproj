@@ -15,6 +15,8 @@
 		F37422452B58057F003E6290 /* UIViewController+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37422442B58057F003E6290 /* UIViewController+Convenience.swift */; };
 		F37422482B5808D5003E6290 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F374224A2B5808D5003E6290 /* Localizable.strings */; };
 		F374224D2B580B89003E6290 /* CreateActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F374224C2B580B89003E6290 /* CreateActivityViewController.swift */; };
+		F3DF71832B5BF54700012B9C /* ActivityListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DF71822B5BF54700012B9C /* ActivityListPresenter.swift */; };
+		F3DF71852B5BF65900012B9C /* Date+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DF71842B5BF65900012B9C /* Date+Convenience.swift */; };
 		F3E812D52B57D81000ADA29C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E812D42B57D81000ADA29C /* AppDelegate.swift */; };
 		F3E812D92B57D81000ADA29C /* ActivityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E812D82B57D81000ADA29C /* ActivityListViewController.swift */; };
 		F3E812DE2B57D81200ADA29C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3E812DD2B57D81200ADA29C /* Assets.xcassets */; };
@@ -31,6 +33,8 @@
 		F37422442B58057F003E6290 /* UIViewController+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Convenience.swift"; sourceTree = "<group>"; };
 		F37422492B5808D5003E6290 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F374224C2B580B89003E6290 /* CreateActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateActivityViewController.swift; sourceTree = "<group>"; };
+		F3DF71822B5BF54700012B9C /* ActivityListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListPresenter.swift; sourceTree = "<group>"; };
+		F3DF71842B5BF65900012B9C /* Date+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Convenience.swift"; sourceTree = "<group>"; };
 		F3E812D12B57D81000ADA29C /* Daily_Planner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Daily_Planner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3E812D42B57D81000ADA29C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3E812D82B57D81000ADA29C /* ActivityListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				F3E812D82B57D81000ADA29C /* ActivityListViewController.swift */,
+				F3DF71822B5BF54700012B9C /* ActivityListPresenter.swift */,
 			);
 			path = ActivityList;
 			sourceTree = "<group>";
@@ -112,6 +117,7 @@
 				F374223F2B5800E4003E6290 /* Colors.swift */,
 				F37422412B5804DF003E6290 /* LocalizedStrings.swift */,
 				F37422442B58057F003E6290 /* UIViewController+Convenience.swift */,
+				F3DF71842B5BF65900012B9C /* Date+Convenience.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -289,7 +295,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3E812D92B57D81000ADA29C /* ActivityListViewController.swift in Sources */,
+				F3DF71832B5BF54700012B9C /* ActivityListPresenter.swift in Sources */,
 				F327EDDD2B5BB41C003EA6C5 /* CreateActivityPresenter.swift in Sources */,
+				F3DF71852B5BF65900012B9C /* Date+Convenience.swift in Sources */,
 				F374224D2B580B89003E6290 /* CreateActivityViewController.swift in Sources */,
 				F327EDDB2B5BA7C4003EA6C5 /* ActivityDataBase.swift in Sources */,
 				F37422452B58057F003E6290 /* UIViewController+Convenience.swift in Sources */,

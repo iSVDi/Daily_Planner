@@ -17,6 +17,11 @@ class CreateActivityPresenter {
     }
 
     func isDatesCorrect(dateStart: Date, dateFinish: Date) -> Bool {
+        guard Calendar.current.isDate(dateStart, inSameDayAs: dateFinish) else {
+            createActivityDelegate?.showAlert(title: "Cannot Save Activity", message: "The start and end dates must belong to one day")
+            return false
+        }
+
         guard dateFinish.compare(dateStart) == .orderedDescending else {
             createActivityDelegate?.showAlert(title: "Cannot Save Activity", message: "The start date must be before the end date")
             return false

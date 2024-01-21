@@ -16,18 +16,28 @@ class Activity: Object {
 
 class ActivityDataBase {
 
-    private let realm: Realm? = {
+    private let realm: Realm = {
         do {
             let realm = try Realm()
             return realm
         } catch {
-            return nil
+            // TODO: check
+            fatalError("Cannot create realm class")
         }
     }()
 
     func addActivity(_ activity: Activity) throws {
-        try realm?.write {
-            realm?.add(activity)
+        try realm.write {
+            realm.add(activity)
         }
     }
+
+    func getActivitiesForDate(day: Date) throws -> [Activity] {
+        let activities: [Activity] = realm.objects(Activity.self).filter {
+            let activityDate = Date(timeIntervalSince1970: $0.dateStart)
+            return Calendar.current.isDate(day, inSameDayAs: activityDate)
+        }
+        return activities
+    }
+
 }

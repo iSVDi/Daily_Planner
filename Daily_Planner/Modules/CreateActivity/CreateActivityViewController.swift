@@ -19,6 +19,7 @@ class CreateActivityViewController: UIViewController {
     private let descriptionTextView = UITextView()
     private let dateStartPicker = UIDatePicker()
     private let dateFinishPicker = UIDatePicker()
+    private let descriptionPlaceholderColor: UIColor = .appLightGray
     private lazy var presenter = CreateActivityPresenter(self)
 
     override func viewDidLoad() {
@@ -57,7 +58,7 @@ class CreateActivityViewController: UIViewController {
         dateStartLabel.text = "Date start"
         dateFinishLabel.text = "Date finish"
         descriptionTextView.text = "Placeholder"
-        descriptionTextView.textColor = .appLightGray
+        descriptionTextView.textColor = descriptionPlaceholderColor
         descriptionTextView.delegate = self
 
         [titleTextField, descriptionTextView].forEach {
@@ -85,7 +86,7 @@ class CreateActivityViewController: UIViewController {
             return
         }
 
-        let isEnable = !title.isEmpty && !descriptionTextView.text.isEmpty
+        let isEnable = !title.isEmpty && !descriptionTextView.text.isEmpty && descriptionTextView.textColor != descriptionPlaceholderColor
         navigationItem.rightBarButtonItem?.isEnabled = isEnable
 
     }
@@ -131,7 +132,7 @@ extension CreateActivityViewController: UITextViewDelegate {
     }
 
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.textColor == .appLightGray {
+        if textView.textColor == descriptionPlaceholderColor {
                 textView.text = nil
                 textView.textColor = UIColor.black
             }
@@ -141,7 +142,7 @@ extension CreateActivityViewController: UITextViewDelegate {
         if textView.text.isEmpty {
             // TODO: localize
                textView.text = "Placeholder"
-               textView.textColor = UIColor.lightGray
+            textView.textColor = descriptionPlaceholderColor
            }
     }
 
