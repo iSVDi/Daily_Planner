@@ -12,7 +12,7 @@ class ActivityTableViewCell: UITableViewCell {
     private let timeLabel = UILabel()
     private let activitiesStack = UIStackView()
     private var handler: ((Activity) -> Void)?
-    private var data: ActivityCellStruct?
+    private var data: ActivityCellData?
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -47,7 +47,7 @@ class ActivityTableViewCell: UITableViewCell {
         activitiesStack.leftToRight(of: timeLabel, offset: 10)
     }
 
-    func setData(_ data: ActivityCellStruct, completionHandler: @escaping ((Activity) -> Void)) {
+    func setData(_ data: ActivityCellData, completionHandler: @escaping ((Activity) -> Void)) {
         self.handler = completionHandler
         timeLabel.text = data.timeTitle
         self.data = data
@@ -65,7 +65,6 @@ class ActivityTableViewCell: UITableViewCell {
     private func buttonHandler(_ sender: UIButton) {
         guard let data = data,
               let id = activitiesStack.arrangedSubviews.firstIndex(of: sender) else {
-            // TODO: handle error
             return
         }
         let activity = data.activities[id]

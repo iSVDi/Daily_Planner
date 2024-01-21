@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ActivityCellStruct {
+struct ActivityCellData {
     let timeTitle: String
     let activities: [Activity]
 }
@@ -20,13 +20,13 @@ struct Hour {
 class ActivityListPresenter {
     weak private var activityListDelegate: ActivityListDelegate?
     private let dataBase = ActivityDataBase()
-    private(set) var activitiesByHours: [ActivityCellStruct] = []
+    private(set) var activitiesByHours: [ActivityCellData] = []
 
     init(_ activityListDelegate: ActivityListDelegate) {
         self.activityListDelegate = activityListDelegate
     }
 
-    func setActivitiesForDate(day: Date) {
+    func handleDidSelectDate(day: Date) {
         do {
             let activities = try dataBase.getActivitiesForDate(day: day)
             setActivitiesByHours(activities: activities, date: day)
@@ -36,15 +36,13 @@ class ActivityListPresenter {
                 activityListDelegate?.needUpdateTableView()
             }
         } catch {
-            // TODO: handle error
-            print(error.localizedDescription)
+            activityListDelegate?.showEmptyLabel()
+            activityListDelegate?.showAlert(title: ^String.Alerts.errorTitle, message: error.localizedDescription)
         }
     }
 
-    // TODO: optimize
     private func setActivitiesByHours(activities: [Activity], date: Date) {
         guard let hours = date.byHours else {
-            // TODO: handle error
             return
         }
 
@@ -54,34 +52,16 @@ class ActivityListPresenter {
                     let activityRange = activity.dateStart...activity.dateFinish
                     let hourStartInCond = activityRange.contains(hour.range.lowerBound)
                     let hourEndInCond = activityRange.contains(hour.range.upperBound)
-                    let fullHourCond = hour.range.contains(activityRange.lowerBound) && hour.range.contains(activityRange.upperBound)
-                    let res = hourStartInCond || hourEndInCond || fullHourCond
+                    let oneHourCond = hour.range.contains(activityRange.lowerBound) && hour.range.contains(activityRange.upperBound)
+                    let res = hourStartInCond || hourEndInCond || oneHourCond
                     return res
                 }
-                return ActivityCellStruct(timeTitle: hour.title, activities: activitiesByHour)
+                return ActivityCellData(timeTitle: hour.title, activities: activitiesByHour)
             }
             .filter {
                 !$0.activities.isEmpty
             }
         activitiesByHours = dataCells
-
-    }
-
-    // TODO: remove after testing
-    private func printActivitiesDetails() {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "hh:mm:ss"
-        activitiesByHours.forEach { cell in
-            print("     " + cell.timeTitle)
-            cell.activities.forEach { activity in
-                let dateStart = Date(timeIntervalSince1970: activity.dateStart)
-                let dateFinish = Date(timeIntervalSince1970: activity.dateFinish)
-                print(formatter.string(from: dateStart) + " - " + formatter.string(from: dateFinish))
-                print(activity.title)
-                print("---------")
-            }
-            print()
-        }
     }
 
 }

@@ -6,5 +6,31 @@
   
 */
 
-//MARK: Common
+//MARK: - Common
+
 "BackTitle" = "Back";
+"AddTitle" = "Add";
+"OkTitle" = "Ok";
+"CreateTitle" = "Create";
+
+//MARK: - Activities
+
+"ListTitle" = "Activity List";
+"NoActivitiesTitle" = "No activities";
+"PlaceholderTitle" = "Placeholder";
+"Title" = "Title";
+"CreateActivityTitle" = "Create Activity";
+"DateStartTitle" = "Date Start";
+"DateFinishTitle" = "Date Finish";
+"DetailsTitle" = "Details";
+
+//MARK: - Alerts
+
+"ErrorTitle" = "Error";
+"CannotSaveActivityTitle" = "Cannot Save Activity";
+"BelongOneDayTitle" = "The start and end dates must belong to one day";
+"StartDateBeforeTitle" = "The start date must be before the end date";
+
+
+
+

@@ -21,7 +21,6 @@ class ActivityDataBase {
             let realm = try Realm()
             return realm
         } catch {
-            // TODO: check
             fatalError("Cannot create realm class")
         }
     }()

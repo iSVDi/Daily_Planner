@@ -15,6 +15,27 @@ extension String {
 
     enum Common: String {
         case backTitle
+        case addTitle
+        case okTitle
+        case createTitle
+    }
+
+    enum Activities: String {
+        case listTitle
+        case noActivitiesTitle
+        case placeholderTitle
+        case title
+        case createActivityTitle
+        case dateStartTitle
+        case dateFinishTitle
+        case detailsTitle
+    }
+
+    enum Alerts: String {
+        case errorTitle
+        case cannotSaveActivityTitle
+        case belongOneDayTitle
+        case startDateBeforeTitle
     }
 
 }

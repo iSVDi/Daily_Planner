@@ -1,5 +1,5 @@
 //
-//  CreateActivityViewController.swift
+//  ActivityViewController.swift
 //  Daily_Planner
 //
 //  Created by Daniil on 17.01.2024.
@@ -7,18 +7,17 @@
 
 import UIKit
 
-enum Mode {
+enum ActivityMode {
     case create
     case details
 }
 
-protocol CreateActivityDelegate: NSObjectProtocol {
-    var mode: Mode { get }
+protocol ActivityDelegate: NSObjectProtocol {
     func showAlert(title: String, message: String)
     func closeController()
 }
 
-class CreateActivityViewController: UIViewController {
+class ActivityViewController: UIViewController {
 
     private let titleTextField = UITextField()
     private let dateStartLabel = UILabel()
@@ -27,27 +26,27 @@ class CreateActivityViewController: UIViewController {
     private let dateStartPicker = UIDatePicker()
     private let dateFinishPicker = UIDatePicker()
     private let descriptionPlaceholderColor: UIColor = .appLightGray
-    private lazy var presenter = CreateActivityPresenter(self)
-    private let activityMode: Mode
+    private lazy var presenter = ActivityPresenter(self)
+    private let activityMode: ActivityMode
     private let createHandler: (() -> Void)?
     private let activity: Activity?
 
-    class func getController(for mode: Mode, _ completionHandler: @escaping (() -> Void)) -> UIViewController {
-        return CreateActivityViewController(mode: mode, completionHandler)
+    class func getController(for mode: ActivityMode, _ completionHandler: @escaping (() -> Void)) -> UIViewController {
+        return ActivityViewController(mode: mode, completionHandler)
     }
 
-    class func getController(for mode: Mode, _ activity: Activity) -> UIViewController {
-        return CreateActivityViewController(mode: mode, activity)
+    class func getController(for mode: ActivityMode, _ activity: Activity) -> UIViewController {
+        return ActivityViewController(mode: mode, activity)
     }
 
-    private init(mode: Mode, _ completionHandler: @escaping (() -> Void)) {
+    private init(mode: ActivityMode, _ completionHandler: @escaping (() -> Void)) {
         self.createHandler = completionHandler
         self.activityMode = mode
         self.activity = nil
         super.init(nibName: nil, bundle: nil)
     }
 
-    private init(mode: Mode, _ activity: Activity) {
+    private init(mode: ActivityMode, _ activity: Activity) {
         self.activity = activity
         self.activityMode = mode
         self.createHandler = nil
@@ -86,17 +85,16 @@ class CreateActivityViewController: UIViewController {
         descriptionTextView.heightToSuperview(multiplier: 0.7)
     }
 
-    // TODO: localize
     private func setupViews() {
         [titleTextField, descriptionTextView].forEach {
             $0.backgroundColor = .appSystemGray
             $0.layer.cornerRadius = 10
         }
 
-        dateStartLabel.text = "Date start"
-        dateFinishLabel.text = "Date finish"
+        dateStartLabel.text = ^String.Activities.dateStartTitle
+        dateFinishLabel.text = ^String.Activities.dateFinishTitle
 
-        guard mode == .create else {
+        guard activityMode == .create else {
             setupViewsForDetails()
             return
         }
@@ -107,14 +105,14 @@ class CreateActivityViewController: UIViewController {
             $0.date = currentDate
         }
 
-        navigationItem.title = "Create Activity"
-        titleTextField.placeholder = "Title"
+        navigationItem.title = ^String.Activities.createActivityTitle
+        titleTextField.placeholder = ^String.Activities.title
         descriptionTextView.delegate = self
-        descriptionTextView.text = "Placeholder"
+        descriptionTextView.text = ^String.Activities.placeholderTitle
         descriptionTextView.textColor = descriptionPlaceholderColor
         descriptionTextView.delegate = self
 
-        let rightBarButtonItem = UIBarButtonItem(title: "Create",
+        let rightBarButtonItem = UIBarButtonItem(title: ^String.Common.createTitle,
                                                  style: .done,
                                                  target: self,
                                                  action: #selector(rightBarButtonHandler))
@@ -134,7 +132,7 @@ class CreateActivityViewController: UIViewController {
         [titleTextField, descriptionTextView, dateStartPicker, dateFinishPicker].forEach {
             $0.isUserInteractionEnabled = false
         }
-        navigationItem.title = "Details"
+        navigationItem.title = ^String.Activities.detailsTitle
     }
 
     private func updateNavigationBarIfNeed() {
@@ -149,6 +147,7 @@ class CreateActivityViewController: UIViewController {
 
     private func getDatePickerStack(label: UILabel, datePicker: UIDatePicker) -> UIView {
         let stack = UIStackView()
+        stack.spacing = 10
         [label, datePicker].forEach {
             stack.addArrangedSubview($0)
         }
@@ -181,7 +180,7 @@ class CreateActivityViewController: UIViewController {
 
 // MARK: - UITextViewDelegate
 
-extension CreateActivityViewController: UITextViewDelegate {
+extension ActivityViewController: UITextViewDelegate {
 
     func textViewDidChange(_ textView: UITextView) {
         updateNavigationBarIfNeed()
@@ -196,27 +195,21 @@ extension CreateActivityViewController: UITextViewDelegate {
 
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            // TODO: localize
-               textView.text = "Placeholder"
+            textView.text = ^String.Activities.placeholderTitle
             textView.textColor = descriptionPlaceholderColor
            }
     }
 
 }
 
-// MARK: - CreateActivityDelegate
+// MARK: - ActivityDelegate
 
-extension CreateActivityViewController: CreateActivityDelegate {
-
-    var mode: Mode {
-        return activityMode
-    }
+extension ActivityViewController: ActivityDelegate {
 
     func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        // TODO: localize
-        let ok = UIAlertAction(title: "Ok", style: .default)
-        alert.addAction(ok)
+        let okAction = UIAlertAction(title: ^String.Common.okTitle, style: .default)
+        alert.addAction(okAction)
         present(alert, animated: true)
     }
 
