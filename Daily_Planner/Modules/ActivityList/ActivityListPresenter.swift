@@ -30,17 +30,20 @@ class ActivityListPresenter {
         do {
             let activities = try dataBase.getActivitiesForDate(day: day)
             setActivitiesByHours(activities: activities, date: day)
-            // TODO: set activities for view
+            if activitiesByHours.isEmpty {
+                activityListDelegate?.showEmptyLabel()
+            } else {
+                activityListDelegate?.needUpdateTableView()
+            }
         } catch {
             // TODO: handle error
             print(error.localizedDescription)
-
         }
     }
 
     // TODO: optimize
     private func setActivitiesByHours(activities: [Activity], date: Date) {
-        guard let hours = date.byHoursX else {
+        guard let hours = date.byHours else {
             // TODO: handle error
             return
         }
@@ -51,7 +54,9 @@ class ActivityListPresenter {
                     let activityRange = activity.dateStart...activity.dateFinish
                     let hourStartInCond = activityRange.contains(hour.range.lowerBound)
                     let hourEndInCond = activityRange.contains(hour.range.upperBound)
-                    return hourStartInCond || hourEndInCond
+                    let fullHourCond = hour.range.contains(activityRange.lowerBound) && hour.range.contains(activityRange.upperBound)
+                    let res = hourStartInCond || hourEndInCond || fullHourCond
+                    return res
                 }
                 return ActivityCellStruct(timeTitle: hour.title, activities: activitiesByHour)
             }
@@ -59,7 +64,6 @@ class ActivityListPresenter {
                 !$0.activities.isEmpty
             }
         activitiesByHours = dataCells
-        activityListDelegate?.needUpdateTableView()
 
     }
 

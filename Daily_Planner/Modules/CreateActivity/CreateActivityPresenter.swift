@@ -16,6 +16,7 @@ class CreateActivityPresenter {
         self.createActivityDelegate = createActivityDelegate
     }
 
+    // TODO: localize
     func isDatesCorrect(dateStart: Date, dateFinish: Date) -> Bool {
         guard Calendar.current.isDate(dateStart, inSameDayAs: dateFinish) else {
             createActivityDelegate?.showAlert(title: "Cannot Save Activity", message: "The start and end dates must belong to one day")
