@@ -18,7 +18,7 @@ extension Date {
         return range
     }
 
-    var byHoursX: [Hour]? {
+    var byHours: [Hour]? {
         let hours = (0...23).compactMap { (num) -> Hour? in
             guard let start = Calendar.current.date(bySettingHour: num, minute: 0, second: 0, of: self),
                   let end = Calendar.current.date(bySettingHour: num, minute: 59, second: 59, of: self) else {

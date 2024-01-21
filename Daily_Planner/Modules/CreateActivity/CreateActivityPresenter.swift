@@ -33,6 +33,7 @@ class CreateActivityPresenter {
     func createActivity(activity: Activity) {
         do {
             try dataBase.addActivity(activity)
+            createActivityDelegate?.closeController()
         } catch {
             // TODO: localize
             createActivityDelegate?.showAlert(title: "Error", message: error.localizedDescription)

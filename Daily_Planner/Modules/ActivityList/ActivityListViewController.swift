@@ -69,7 +69,14 @@ class ActivityListViewController: UIViewController {
 
     @objc
     private func righBarButtonHandler() {
-        let controller = CreateActivityViewController()
+        let controller = CreateActivityViewController.getController(for: .create) { [weak self] in
+            guard let welf = self,
+                  let selectedDate = welf.calendarView.selectedDate else {
+                // TODO: hadle
+                return
+            }
+            welf.presenter.setActivitiesForDate(day: selectedDate)
+        }
         navigationController?.pushViewController(controller, animated: true)
     }
 
@@ -97,8 +104,12 @@ extension ActivityListViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ActivityTableViewCell.description(), for: indexPath)
         let data = presenter.activitiesByHours[indexPath.row]
-        (cell as? ActivityTableViewCell)?.setData(data, completionHandler: { _ in
-            print("open activity details")
+        (cell as? ActivityTableViewCell)?.setData(data, completionHandler: { [weak self] activity in
+            guard let welf = self else {
+                return
+            }
+            let controller = CreateActivityViewController.getController(for: .details, activity)
+            welf.navigationController?.pushViewController(controller, animated: true)
         })
         return cell
     }

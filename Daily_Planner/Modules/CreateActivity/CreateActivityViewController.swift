@@ -7,8 +7,15 @@
 
 import UIKit
 
+enum Mode {
+    case create
+    case details
+}
+
 protocol CreateActivityDelegate: NSObjectProtocol {
+    var mode: Mode { get }
     func showAlert(title: String, message: String)
+    func closeController()
 }
 
 class CreateActivityViewController: UIViewController {
@@ -21,6 +28,35 @@ class CreateActivityViewController: UIViewController {
     private let dateFinishPicker = UIDatePicker()
     private let descriptionPlaceholderColor: UIColor = .appLightGray
     private lazy var presenter = CreateActivityPresenter(self)
+    private let activityMode: Mode
+    private let createHandler: (() -> Void)?
+    private let activity: Activity?
+
+    class func getController(for mode: Mode, _ completionHandler: @escaping (() -> Void)) -> UIViewController {
+        return CreateActivityViewController(mode: mode, completionHandler)
+    }
+
+    class func getController(for mode: Mode, _ activity: Activity) -> UIViewController {
+        return CreateActivityViewController(mode: mode, activity)
+    }
+
+    private init(mode: Mode, _ completionHandler: @escaping (() -> Void)) {
+        self.createHandler = completionHandler
+        self.activityMode = mode
+        self.activity = nil
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    private init(mode: Mode, _ activity: Activity) {
+        self.activity = activity
+        self.activityMode = mode
+        self.createHandler = nil
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,18 +88,17 @@ class CreateActivityViewController: UIViewController {
 
     // TODO: localize
     private func setupViews() {
-        navigationItem.title = "Create Activity"
-        titleTextField.placeholder = "Title"
-        descriptionTextView.delegate = self
-        dateStartLabel.text = "Date start"
-        dateFinishLabel.text = "Date finish"
-        descriptionTextView.text = "Placeholder"
-        descriptionTextView.textColor = descriptionPlaceholderColor
-        descriptionTextView.delegate = self
-
         [titleTextField, descriptionTextView].forEach {
             $0.backgroundColor = .appSystemGray
             $0.layer.cornerRadius = 10
+        }
+
+        dateStartLabel.text = "Date start"
+        dateFinishLabel.text = "Date finish"
+
+        guard mode == .create else {
+            setupViewsForDetails()
+            return
         }
 
         let currentDate = Date()
@@ -72,6 +107,13 @@ class CreateActivityViewController: UIViewController {
             $0.date = currentDate
         }
 
+        navigationItem.title = "Create Activity"
+        titleTextField.placeholder = "Title"
+        descriptionTextView.delegate = self
+        descriptionTextView.text = "Placeholder"
+        descriptionTextView.textColor = descriptionPlaceholderColor
+        descriptionTextView.delegate = self
+
         let rightBarButtonItem = UIBarButtonItem(title: "Create",
                                                  style: .done,
                                                  target: self,
@@ -79,6 +121,20 @@ class CreateActivityViewController: UIViewController {
         navigationItem.setRightBarButton(rightBarButtonItem, animated: false)
         navigationItem.rightBarButtonItem?.isEnabled = false
         titleTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+    }
+
+    private func setupViewsForDetails() {
+        if let activity = activity {
+            dateStartPicker.date = Date(timeIntervalSince1970: activity.dateStart)
+            dateFinishPicker.date = Date(timeIntervalSince1970: activity.dateFinish)
+            titleTextField.text = activity.title
+            descriptionTextView.text = activity.details
+        }
+
+        [titleTextField, descriptionTextView, dateStartPicker, dateFinishPicker].forEach {
+            $0.isUserInteractionEnabled = false
+        }
+        navigationItem.title = "Details"
     }
 
     private func updateNavigationBarIfNeed() {
@@ -152,12 +208,21 @@ extension CreateActivityViewController: UITextViewDelegate {
 
 extension CreateActivityViewController: CreateActivityDelegate {
 
+    var mode: Mode {
+        return activityMode
+    }
+
     func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         // TODO: localize
         let ok = UIAlertAction(title: "Ok", style: .default)
         alert.addAction(ok)
         present(alert, animated: true)
+    }
+
+    func closeController() {
+        createHandler?()
+        navigationController?.popViewController(animated: true)
     }
 
 }
